@@ -751,7 +751,7 @@ EOF
     "outbounds":[
         {
             "type":"direct",
-            "tag":"direct",
+            "tag":"direct"
         },
         {
             "type":"wireguard",
