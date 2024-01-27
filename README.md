@@ -51,7 +51,7 @@
 ## sba for VPS 运行脚本:
 
 ```
-bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sba/main/sba.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/devAlikhani/sba/main/sba.sh)
 ```
 
   | Option 参数 | Remark 备注 | 

@@ -668,8 +668,6 @@ EOF
             "tag":"vless-in",
             "listen":"127.0.0.1",
             "listen_port":3011,
-            "sniff":true,
-            "sniff_override_destination":true,
             "transport":{
                 "type":"ws",
                 "path":"/${WS_PATH}-vl",
@@ -697,8 +695,6 @@ EOF
             "tag":"vmess-in",
             "listen":"127.0.0.1",
             "listen_port":3012,
-            "sniff":true,
-            "sniff_override_destination":true,
             "transport":{
                 "type":"ws",
                 "path":"/${WS_PATH}-vm",
@@ -726,8 +722,6 @@ EOF
             "tag":"trojan-in",
             "listen":"127.0.0.1",
             "listen_port":3013,
-            "sniff":true,
-            "sniff_override_destination":true,
             "transport":{
                 "type":"ws",
                 "path":"/${WS_PATH}-tr",
@@ -758,19 +752,6 @@ EOF
         {
             "type":"direct",
             "tag":"direct",
-            "domain_strategy":"${DOMAIN_STRATEG}"
-        },
-        {
-            "type":"direct",
-            "tag":"warp-IPv4-out",
-            "detour":"wireguard-out",
-            "domain_strategy":"ipv4_only"
-        },
-        {
-            "type":"direct",
-            "tag":"warp-IPv6-out",
-            "detour":"wireguard-out",
-            "domain_strategy":"ipv6_only"
         },
         {
             "type":"wireguard",
@@ -781,7 +762,7 @@ EOF
                 "172.16.0.2/32",
                 "2606:4700:110:8a36:df92:102a:9602:fa18/128"
             ],
-            "private_key":"YFYOAdbw1bKTHlNNi+aEjBM3BO7unuFC5rOkMRAz9XY=",
+            "private_key":"uKxzFf1wfDX9WEr20G4oNDE3ex8fMUbh8FxVTfRHXV8=",
             "peer_public_key":"bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
             "reserved":[
                 78,
@@ -806,12 +787,8 @@ EOF
         ],
         "rules":[
             {
-                "domain":"api.openai.com",
-                "outbound":"warp-IPv4-out"
-            },
-            {
                 "rule_set":"geosite-openai",
-                "outbound":"warp-IPv6-out"
+                "outbound":"wireguard-out"
             }
         ]
     }
